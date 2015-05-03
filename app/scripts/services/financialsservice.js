@@ -8,14 +8,15 @@
  * Factory in the stockBotApp.
  */
 angular.module('stockBotApp')
-  .factory('financialsService', function ($http) {
+  .factory('financialsService', function ($http, ApiKey) {
 
     var baseUrl = 'https://sec.kimonolabs.com/';
-    var baseArgs = { apikey: '' }
+    var baseArgs = { apikey: ApiKey.key }
 
     return {
-      someMethod: function () {
-        return meaningOfLife;
+      getFinancials: function(symbol) {
+        symbol = symbol.toUpperCase();
+        return $http.get(baseUrl + 'companies/' + symbol + '/forms/10-K/ANN', baseArgs);
       }
     };
   });

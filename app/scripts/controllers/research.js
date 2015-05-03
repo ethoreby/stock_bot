@@ -8,9 +8,14 @@
  * Controller of the stockBotApp
  */
 angular.module('stockBotApp')
-  .controller('ResearchCtrl', function ($scope) {
+  .controller('ResearchCtrl', function ($scope, financialsService) {
 
     $scope.researchStocks = function() {
-      console.log($scope.stocksInput);
+      financialsService.getFinancials('aal').then(function(rsp) {
+        console.log(rsp);
+      },
+      function(err) {
+        console.log(err);
+      });
     };
   });
