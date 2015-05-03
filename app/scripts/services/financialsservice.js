@@ -10,7 +10,8 @@
 angular.module('stockBotApp')
   .factory('financialsService', function ($http) {
 
-    var baseUrl = "";
+    var baseUrl = 'https://sec.kimonolabs.com/';
+    var baseArgs = { apikey: '' }
 
     return {
       someMethod: function () {
