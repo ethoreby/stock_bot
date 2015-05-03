@@ -15,11 +15,16 @@ angular
     'ui.router'
   ])
   .config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/research');
     $stateProvider
       .state('research', {
-        url: '/',
+        url: '/research',
         templateUrl: 'views/research.html',
-        
+        controller: 'ResearchCtrl'
+      })
+      .state('reseach.results', {
+        url: '/results',
+        templateUrl: 'views/results.html',
+        controller: 'ResultsCtrl'
       })
   });
